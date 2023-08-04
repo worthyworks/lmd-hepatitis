@@ -39,29 +39,59 @@ def topic_2():
     st.title("Modes of Transmission of HBV")
     st.write("Add your content about modes of transmission here.")
     
+    # Embed YouTube video
+    st.header("Watch the Modes of Transmission of Hepatitis B Video")
+    video_url = "https://www.youtube.com/embed/xg5yRly4cHA"
+    st.markdown(f'<iframe width="560" height="315" src="{video_url}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
+    
 def topic_3():
     st.title("Prevention of HBV")
     st.write("Add prevention contents here.")
     
+    # Embed YouTube video
+    st.header("Watch the Modes of Prevention of Hepatitis B Video")
+    video_url = "https://www.youtube.com/embed/3S9k_UELJzs"
+    st.markdown(f'<iframe width="560" height="315" src="{video_url}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
+    
 def topic_4():
     st.title("Prevention of Mother to Child Transmission of HBV")
-    st.write("Add pmtct content here.")
+    st.write("Add PMTCT content here.")
+    # Embed YouTube video
+    st.header("Watch the Modes of Prevention of Hepatitis B Video")
+    video_url = "https://www.youtube.com/embed/UC_j9EWTy9Q"
+    st.markdown(f'<iframe width="560" height="315" src="{video_url}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
     
 def topic_5():
     st.title("Symptoms, Signs & Outcomes of HBV Infection")
     st.write("Add your signs and symptoms content here.")
+    # Embed YouTube video
+    st.header("Watch the Symptoms and Signs of Hepatitis B Video")
+    video_url = "https://www.youtube.com/embed/kiksNqIxcz8"
+    st.markdown(f'<iframe width="560" height="315" src="{video_url}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
     
 def topic_6():
     st.title("Understanding Laboratory Tests for HBV")
     st.write("Add your serology content here.")
+    # Embed YouTube video
+    st.header("Watch Understanding Hepatitis B Serology Video")
+    video_url = "https://www.youtube.com/embed/zlZ18zwG_70"
+    st.markdown(f'<iframe width="560" height="315" src="{video_url}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
     
 def topic_7():
     st.title("Outcome & Treatment of Acute HBV Infection")
     st.write("Add treatment of acute hbv content here.")
+    # Embed YouTube video
+    st.header("Watch Outcome & Treatment of Acute HBV Video")
+    video_url = "https://www.youtube.com/embed/V-y-SEq2-hM"
+    st.markdown(f'<iframe width="560" height="315" src="{video_url}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
 
 def topic_8():
     st.title("Criteria for Treatment of Chronic HBV Infection")
     st.write("Add treatment criteria for chronic hbv content here.")
+    # Embed YouTube video
+    st.header("Watch Criteria for Treatment of Chronic HBV Video")
+    video_url = "https://www.youtube.com/embed/JX36tGZY1ME"
+    st.markdown(f'<iframe width="560" height="315" src="{video_url}" frameborder="0" allowfullscreen></iframe>', unsafe_allow_html=True)
     
     # Add any interactive elements, quizzes, or additional resources for Topic 2
 
@@ -69,6 +99,7 @@ def topic_8():
 
 def main():
     st.title("🦠 Hepatitis B Course")
+    st.subheader(" By - Dr. Nimzing Ladep MBBS PhD FRCP, Consultant Hepatologist")
     st.write("Welcome to this Intermediate level Hepatitis B Course!")
 
     # List of bundled slide PDFs
