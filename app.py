@@ -1,6 +1,8 @@
 import streamlit as st
 from pdf2image import convert_from_path
+import os
 
+slides_folder = "slides"
 
 def display_pdf_slide(pdf_path):
     images = convert_from_path(pdf_path)
@@ -8,24 +10,44 @@ def display_pdf_slide(pdf_path):
     for image in images:
         st.image(image, use_column_width=True)
 
+        
+
+
+
 def topic_1():
     st.title("Introduction to Hepatitis B")
-    st.write("Add your introduction content here.")
+    
+    pdf_path = os.path.join(slides_folder, "slide1.pdf")
+    display_pdf_slide(pdf_path)
+    
 
-    # Interactive Quiz
-    st.header("Quiz: What is the primary mode of hepatitis B transmission?")
-    options = ["A. Sexual contact", "B. Sharing needles", "C. Mother to child during childbirth", "D. All of the above"]
-    correct_answer = "D. All of the above"
+    # Quiz 1: What is the primary mode of hepatitis B transmission?
+    st.header("Quiz 1: What is the primary mode of hepatitis B transmission?")
+    options_1 = ["A. Sexual contact", "B. Sharing needles", "C. Mother to child during childbirth", "D. All of the above"]
+    correct_answer_1 = "D. All of the above"
 
-     # Display the radio button for user choice and set default value to an empty string
-    user_choice = st.radio("Select your answer:", ["None"] + options)
+    user_choice_1 = st.radio("Select your answer:", ["None"] + options_1)
 
-    # Check if the user has made a selection
-    if user_choice != "None":
-        if user_choice == correct_answer:
+    if user_choice_1 != "None":
+        if user_choice_1 == correct_answer_1:
             st.success("Correct! All of the above are primary modes of hepatitis B transmission.")
         else:
-            st.error(f"Wrong! The correct answer is: {correct_answer}")
+            st.error(f"Wrong! The correct answer is: {correct_answer_1}")
+
+    # Quiz 2: How is hepatitis B primarily transmitted?
+    st.header("Quiz 2: How is hepatitis B primarily transmitted?")
+    options_2 = ["A. Contaminated food and water", "B. Airborne droplets", "C. Sexual contact with an infected person", "D. Mosquito bites"]
+    correct_answer_2 = "C. Sexual contact with an infected person"
+
+    # Generate a unique key for the second radio button using the question text
+    question_key_2 = hash("Select your answer for Quiz 2:")
+    user_choice_2 = st.radio("Select your answer:", ["None"] + options_2, key=question_key_2)
+
+    if user_choice_2 != "None":
+        if user_choice_2 == correct_answer_2:
+            st.success("Correct! Sexual contact with an infected person is the primary mode of hepatitis B transmission.")
+        else:
+            st.error(f"Wrong! The correct answer is: {correct_answer_2}")
             
     # Embed YouTube video
     st.header("Watch the Introduction Video")
@@ -37,7 +59,8 @@ def topic_1():
 
 def topic_2():
     st.title("Modes of Transmission of HBV")
-    st.write("Add your content about modes of transmission here.")
+    pdf_path = os.path.join(slides_folder, "slide2.pdf")
+    display_pdf_slide(pdf_path)
     
     # Embed YouTube video
     st.header("Watch the Modes of Transmission of Hepatitis B Video")
@@ -46,7 +69,8 @@ def topic_2():
     
 def topic_3():
     st.title("Prevention of HBV")
-    st.write("Add prevention contents here.")
+    pdf_path = os.path.join(slides_folder, "slide3.pdf")
+    display_pdf_slide(pdf_path)
     
     # Embed YouTube video
     st.header("Watch the Modes of Prevention of Hepatitis B Video")
@@ -55,7 +79,8 @@ def topic_3():
     
 def topic_4():
     st.title("Prevention of Mother to Child Transmission of HBV")
-    st.write("Add PMTCT content here.")
+    pdf_path = os.path.join(slides_folder, "slide4.pdf")
+    display_pdf_slide(pdf_path)
     # Embed YouTube video
     st.header("Watch the Modes of Prevention of Hepatitis B Video")
     video_url = "https://www.youtube.com/embed/UC_j9EWTy9Q"
@@ -63,7 +88,8 @@ def topic_4():
     
 def topic_5():
     st.title("Symptoms, Signs & Outcomes of HBV Infection")
-    st.write("Add your signs and symptoms content here.")
+    pdf_path = os.path.join(slides_folder, "slide5.pdf")
+    display_pdf_slide(pdf_path)
     # Embed YouTube video
     st.header("Watch the Symptoms and Signs of Hepatitis B Video")
     video_url = "https://www.youtube.com/embed/kiksNqIxcz8"
@@ -71,7 +97,8 @@ def topic_5():
     
 def topic_6():
     st.title("Understanding Laboratory Tests for HBV")
-    st.write("Add your serology content here.")
+    pdf_path = os.path.join(slides_folder, "slide6.pdf")
+    display_pdf_slide(pdf_path)
     # Embed YouTube video
     st.header("Watch Understanding Hepatitis B Serology Video")
     video_url = "https://www.youtube.com/embed/zlZ18zwG_70"
@@ -79,7 +106,8 @@ def topic_6():
     
 def topic_7():
     st.title("Outcome & Treatment of Acute HBV Infection")
-    st.write("Add treatment of acute hbv content here.")
+    pdf_path = os.path.join(slides_folder, "slide7.pdf")
+    display_pdf_slide(pdf_path)
     # Embed YouTube video
     st.header("Watch Outcome & Treatment of Acute HBV Video")
     video_url = "https://www.youtube.com/embed/V-y-SEq2-hM"
@@ -87,7 +115,8 @@ def topic_7():
 
 def topic_8():
     st.title("Criteria for Treatment of Chronic HBV Infection")
-    st.write("Add treatment criteria for chronic hbv content here.")
+    pdf_path = os.path.join(slides_folder, "slide8.pdf")
+    display_pdf_slide(pdf_path)
     # Embed YouTube video
     st.header("Watch Criteria for Treatment of Chronic HBV Video")
     video_url = "https://www.youtube.com/embed/JX36tGZY1ME"
@@ -99,9 +128,24 @@ def topic_8():
 
 def main():
     st.title("🦠 Hepatitis B Course")
+    slides_folder = "slides"  # Folder name where the slides are located
+    infographic_image = os.path.join(slides_folder, "intro.png")
+    st.image(infographic_image, use_column_width=True, caption="Source: by NG Ladep")
     st.subheader(" By - Dr. Nimzing Ladep MBBS PhD FRCP, Consultant Hepatologist")
-    st.write("Welcome to this Intermediate level Hepatitis B Course!")
+    st.write("Welcome to this Hepatitis B Course!")
+    
+    
 
+    st.subheader("""
+                 Use topic area below 'Select a Topic' to navigate contents.
+                 - Each of the 8 topic areas have illustrated contents and a video 
+                 - The video is located at the end of each topic
+                 - Should you prefer to watch, then you can go straight to the video
+                 - If you wish to read the contents, they are self explanatory
+                 - From transmission to treatment of Hepatitis B infection
+                 """
+        
+        )
     # List of bundled slide PDFs
     bundled_slides = {
         "Introduction": "slides/slide1.pdf",
@@ -115,11 +159,12 @@ def main():
         # Add more bundled slides as needed
     }
 
+    # Topic selection
     selected_topic = st.selectbox("Select a Topic", list(bundled_slides.keys()))
 
-    if st.button("🔍Display Topic Contents"):
-        slide_path = bundled_slides[selected_topic]
-        display_pdf_slide(slide_path)
+    # Apply custom CSS style to make the selected topic prominent
+    st.markdown(f"<h2 style='text-align:center;color:#ff0000;'>{selected_topic}</h2>", unsafe_allow_html=True)
+
 
     # Call the corresponding topic function based on user selection
     if selected_topic == "Introduction":
