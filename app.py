@@ -2,6 +2,8 @@ import streamlit as st
 from pdf2image import convert_from_path
 import os
 
+
+
 slides_folder = "slides"
 
 def display_pdf_slide(pdf_path):
@@ -17,8 +19,32 @@ def display_pdf_slide(pdf_path):
 def topic_1():
     st.title("Introduction to Hepatitis B")
     
-    pdf_path = os.path.join(slides_folder, "slide1.pdf")
-    display_pdf_slide(pdf_path)
+    
+    slides_folder = "slides/slide1"  
+    infographic_image = os.path.join(slides_folder, "Slide1.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide2.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide3.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide4.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide5.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide6.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide7.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide8.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide9.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide10.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide11.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
+    infographic_image = os.path.join(slides_folder, "Slide12.jpeg")
+    st.image(infographic_image,use_column_width=True, caption="Introduction")
     
 
     # Quiz 1: What is the primary mode of hepatitis B transmission?
@@ -130,7 +156,7 @@ def main():
     st.title("🦠 Hepatitis B Course")
     slides_folder = "slides"  # Folder name where the slides are located
     infographic_image = os.path.join(slides_folder, "intro.png")
-    st.image(infographic_image, use_column_width=True, caption="Source: by NG Ladep")
+    st.image(infographic_image,width=325, caption="Source: by NG Ladep")
     st.subheader(" By - Dr. Nimzing Ladep MBBS PhD FRCP, Consultant Hepatologist")
     st.write("Welcome to this Hepatitis B Course!")
     
