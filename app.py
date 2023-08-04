@@ -1,8 +1,4 @@
 import streamlit as st
-from pptx import Presentation
-import os
-from io import BytesIO
-from PIL import Image
 from pdf2image import convert_from_path
 
 
