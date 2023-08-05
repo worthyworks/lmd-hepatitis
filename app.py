@@ -9,6 +9,7 @@ slides_folder = "slides"
 
 
 
+
 def get_user_selections():
     if "selected_topic" not in st.session_state:
         st.session_state.selected_topic = "Introduction"
@@ -40,6 +41,7 @@ def topic_1():
                 st.error(f"Wrong! The correct answer is: {correct_answer_1}")
 
         # Quiz 2: How is hepatitis B primarily transmitted?
+        st.write("---")
         st.subheader("Question 2: How is hepatitis B primarily transmitted?")
         options_2 = ["A. Contaminated food and water", "B. Airborne droplets", "C. Sexual contact with an infected person", "D. Mosquito bites"]
         correct_answer_2 = "C. Sexual contact with an infected person"
@@ -53,6 +55,10 @@ def topic_1():
                 st.success("Correct! Sexual contact with an infected person is the primary mode of hepatitis B transmission.")
             else:
                 st.error(f"Wrong! The correct answer is: {correct_answer_2}")
+
+
+
+
                 
     with rt_col:
         slides_folder = "slides/slide1"  
@@ -325,38 +331,24 @@ def main():
 
     # Get the selected topic from the user
     selected_topic = st.selectbox("Select a Topic", list(image_based_topics.keys()), index=list(image_based_topics.keys()).index(get_user_selections()))
-    
+    # Store the selected topic in session_state
+    st.session_state.selected_topic = selected_topic
     
     if st.button("🔍 Load Topic"):
         progress_bar = st.empty()  # Create a placeholder for the progress bar
         with st.spinner("Loading..."):
             # Simulate some time-consuming operation (e.g., fetching data or processing)
             for i in range(100):
-                time.sleep(0.03)  # Simulating some processing delay
+                time.sleep(0.01)  # Simulating some processing delay
                 progress_bar.progress(i + 1)  # Update the progress bar value
             st.success("Topic loaded successfully!")
             
-            # Call the corresponding topic function based on user selection
-            if selected_topic == "Introduction":
-                topic_1()
-            elif selected_topic == "Modes of Transmission of HBV":
-                topic_2()
-            elif selected_topic == "Prevention of HBV":
-                topic_3()
-            elif selected_topic == "Prevention of Mother to Child Transmission of HBV":
-                topic_4()
-            elif selected_topic == "Symptoms, Signs & Outcomes of HBV Infection":
-                topic_5()
-            elif selected_topic == "Understanding Laboratory Tests for HBV":
-                topic_6()
-            elif selected_topic == "Outcome & Treatment of Acute HBV Infection":
-                topic_7()
-            elif selected_topic == "Criteria for Treatment of Chronic HBV Infection":
-                topic_8()
+            
                 
     st.markdown(f"<h2 style='text-align:center;color:#ff0000;'>{selected_topic}</h2>", unsafe_allow_html=True)
 
-
+    # Call the corresponding topic function based on user selection
+    image_based_topics[selected_topic]()
     
     
 
