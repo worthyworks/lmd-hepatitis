@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import time
 
 
 
@@ -322,31 +323,45 @@ def main():
         # Add more bundled slides as needed
     }
 
+    # Get the selected topic from the user
     selected_topic = st.selectbox("Select a Topic", list(image_based_topics.keys()), index=list(image_based_topics.keys()).index(get_user_selections()))
-
     
     
+    if st.button("🔍 Load Topic"):
+        progress_bar = st.empty()  # Create a placeholder for the progress bar
+        with st.spinner("Loading..."):
+            # Simulate some time-consuming operation (e.g., fetching data or processing)
+            for i in range(100):
+                time.sleep(0.03)  # Simulating some processing delay
+                progress_bar.progress(i + 1)  # Update the progress bar value
+            st.success("Topic loaded successfully!")
+            
+            # Call the corresponding topic function based on user selection
+            if selected_topic == "Introduction":
+                topic_1()
+            elif selected_topic == "Modes of Transmission of HBV":
+                topic_2()
+            elif selected_topic == "Prevention of HBV":
+                topic_3()
+            elif selected_topic == "Prevention of Mother to Child Transmission of HBV":
+                topic_4()
+            elif selected_topic == "Symptoms, Signs & Outcomes of HBV Infection":
+                topic_5()
+            elif selected_topic == "Understanding Laboratory Tests for HBV":
+                topic_6()
+            elif selected_topic == "Outcome & Treatment of Acute HBV Infection":
+                topic_7()
+            elif selected_topic == "Criteria for Treatment of Chronic HBV Infection":
+                topic_8()
+                
     st.markdown(f"<h2 style='text-align:center;color:#ff0000;'>{selected_topic}</h2>", unsafe_allow_html=True)
 
 
-    # Call the corresponding topic function based on user selection
-    if selected_topic == "Introduction":
-        topic_1()
-    elif selected_topic == "Modes of Transmission of HBV":
-        topic_2()
-    elif selected_topic == "Prevention of HBV":
-        topic_3()
-    elif selected_topic == "Prevention of Mother to Child Transmission of HBV":
-        topic_4()
-    elif selected_topic == "Symptoms, Signs & Outcomes of HBV Infection":
-        topic_5()
-    elif selected_topic == "Understanding Laboratory Tests for HBV":
-        topic_6()
-    elif selected_topic == "Outcome & Treatment of Acute HBV Infection":
-        topic_7()
-    elif selected_topic == "Criteria for Treatment of Chronic HBV Infection":
-        topic_8()
-    # Call functions for the other topics (topic_3 to topic_8) here
+    
+    
+
+
+    
 
 if __name__ == "__main__":
     main()
