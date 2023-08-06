@@ -394,12 +394,12 @@ def generate_certificate(user_name, user_score):
     # Calculate the width and height of the page
     height, width = landscape(letter)
 
-    # Load the design frame as a PDFImageReader
-    design_frame_path = "slides/border.png"  # Replace with the actual path to your design frame image
-    design_frame = ImageReader(design_frame_path)
-
+   
+    cert_bg_path = os.path.join(os.getcwd(), "slides", "border.png")
+    # Use cert_bg_path as the design_frame_path
+    design_frame_path = cert_bg_path
     # Draw the design frame on the certificate
-    c.drawImage(design_frame, 0, 0, width=height, height=width, preserveAspectRatio=True)
+    c.drawImage(design_frame_path, 0, 0, width=height, height=width, preserveAspectRatio=True)
 
     # Add the title at the top
     title = "Certificate of Achievement"
