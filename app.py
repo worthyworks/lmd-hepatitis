@@ -1,7 +1,6 @@
 import streamlit as st
 import os
 import time
-import reportlab
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.pagesizes import landscape
 from reportlab.pdfgen import canvas
